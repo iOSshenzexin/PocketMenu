@@ -7,16 +7,28 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MainViewController.h"
+#import "LeftViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+     MainViewController *mainController = [[MainViewController alloc] init];
+    DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:mainController];
+   
+    _menuController = rootController;
+    
+     LeftViewController*leftController = [[LeftViewController alloc] init];
+    rootController.leftController = leftController;
+    
+    window.rootViewController = rootController;
+    window.backgroundColor = [UIColor whiteColor];
+    [window makeKeyAndVisible];
+    self.window = window;
     return YES;
 }
 
