@@ -11,6 +11,8 @@
 @interface LeftViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) UINavigationController *mainNavigationController;
+@property (nonatomic,weak) UIWindow *window;
 - (IBAction)didSettingClick:(id)sender;
 
 @end

@@ -33,8 +33,6 @@
 		01F69E711D177681002A168A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F69E6F1D177681002A168A /* LaunchScreen.storyboard */; };
 		01F69E7C1D177681002A168A /* PocketMenuProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E7B1D177681002A168A /* PocketMenuProjectTests.m */; };
 		01F69E871D177681002A168A /* PocketMenuProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E861D177681002A168A /* PocketMenuProjectUITests.m */; };
-		01F69EB11D17B4FC002A168A /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F69EB01D17B4FC002A168A /* image.png */; };
-		01F69EB51D17C6FB002A168A /* 个人中心.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01F69EB41D17C6FB002A168A /* 个人中心.jpg */; };
 		01F69EB71D17CECC002A168A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01F69EB61D17CECC002A168A /* bg.jpg */; };
 		01F69EC01D17F66A002A168A /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69EBF1D17F66A002A168A /* DDMenuController.m */; };
 		01F69EC41D17FDF0002A168A /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69EC21D17FDF0002A168A /* LeftViewController.m */; };
@@ -105,8 +103,6 @@
 		01F69E821D177681002A168A /* PocketMenuProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketMenuProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F69E861D177681002A168A /* PocketMenuProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PocketMenuProjectUITests.m; sourceTree = "<group>"; };
 		01F69E881D177681002A168A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01F69EB01D17B4FC002A168A /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		01F69EB41D17C6FB002A168A /* 个人中心.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "个人中心.jpg"; sourceTree = "<group>"; };
 		01F69EB61D17CECC002A168A /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		01F69EBE1D17F66A002A168A /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		01F69EBF1D17F66A002A168A /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
@@ -159,6 +155,99 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		01BA3C001D1BB1480070C94B /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE5B1D1A8EE100CDDF04 /* FoodViewController.h */,
+				018EAE5C1D1A8EE100CDDF04 /* FoodViewController.m */,
+				018EAE5D1D1A8EE100CDDF04 /* FoodViewController.xib */,
+			);
+			name = Food;
+			sourceTree = "<group>";
+		};
+		01BA3C011D1BB1510070C94B /* Bill */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE601D1A8F0D00CDDF04 /* BillViewController.h */,
+				018EAE611D1A8F0D00CDDF04 /* BillViewController.m */,
+				018EAE621D1A8F0D00CDDF04 /* BillViewController.xib */,
+			);
+			name = Bill;
+			sourceTree = "<group>";
+		};
+		01BA3C021D1BB1580070C94B /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE651D1A8F2700CDDF04 /* PersonViewController.h */,
+				018EAE661D1A8F2700CDDF04 /* PersonViewController.m */,
+				018EAE671D1A8F2700CDDF04 /* PersonViewController.xib */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
+		01BA3C031D1BB1600070C94B /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE6A1D1A8F3D00CDDF04 /* MessageViewController.h */,
+				018EAE6B1D1A8F3D00CDDF04 /* MessageViewController.m */,
+				018EAE6C1D1A8F3D00CDDF04 /* MessageViewController.xib */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		01BA3C041D1BB1920070C94B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE831D1A9F8C00CDDF04 /* LoginViewController.h */,
+				018EAE841D1A9F8C00CDDF04 /* LoginViewController.m */,
+				018EAE851D1A9F8C00CDDF04 /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		01BA3C051D1BB1A10070C94B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE881D1AA4C000CDDF04 /* RegisterViewController.h */,
+				018EAE891D1AA4C000CDDF04 /* RegisterViewController.m */,
+				018EAE8A1D1AA4C000CDDF04 /* RegisterViewController.xib */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		01BA3C061D1BB1BD0070C94B /* ShoppingCar */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE8D1D1AA64600CDDF04 /* ShoppingViewController.h */,
+				018EAE8E1D1AA64600CDDF04 /* ShoppingViewController.m */,
+				018EAE8F1D1AA64600CDDF04 /* ShoppingViewController.xib */,
+			);
+			name = ShoppingCar;
+			sourceTree = "<group>";
+		};
+		01BA3C071D1BB1D00070C94B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				018EAE741D1A96C000CDDF04 /* SettingViewController.h */,
+				018EAE751D1A96C000CDDF04 /* SettingViewController.m */,
+				018EAE761D1A96C000CDDF04 /* SettingViewController.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		01BA3C081D1BB1E20070C94B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				01F69EC11D17FDF0002A168A /* LeftViewController.h */,
+				01F69EC21D17FDF0002A168A /* LeftViewController.m */,
+				01F69EC31D17FDF0002A168A /* LeftViewController.xib */,
+				01F69EC61D17FE28002A168A /* MainViewController.h */,
+				01F69EC71D17FE28002A168A /* MainViewController.m */,
+				01F69EC81D17FE28002A168A /* MainViewController.xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		01F69E521D177680002A168A = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +273,6 @@
 		01F69E5D1D177681002A168A /* PocketMenuProject */ = {
 			isa = PBXGroup;
 			children = (
-				01F69EB41D17C6FB002A168A /* 个人中心.jpg */,
-				01F69EB01D17B4FC002A168A /* image.png */,
 				01F69EB61D17CECC002A168A /* bg.jpg */,
 				01F69EA51D179A2B002A168A /* Controller */,
 				01F69E961D179952002A168A /* ThirdLibrary */,
@@ -246,36 +333,15 @@
 		01F69EA51D179A2B002A168A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				01F69EC11D17FDF0002A168A /* LeftViewController.h */,
-				01F69EC21D17FDF0002A168A /* LeftViewController.m */,
-				01F69EC31D17FDF0002A168A /* LeftViewController.xib */,
-				01F69EC61D17FE28002A168A /* MainViewController.h */,
-				01F69EC71D17FE28002A168A /* MainViewController.m */,
-				01F69EC81D17FE28002A168A /* MainViewController.xib */,
-				018EAE5B1D1A8EE100CDDF04 /* FoodViewController.h */,
-				018EAE5C1D1A8EE100CDDF04 /* FoodViewController.m */,
-				018EAE5D1D1A8EE100CDDF04 /* FoodViewController.xib */,
-				018EAE601D1A8F0D00CDDF04 /* BillViewController.h */,
-				018EAE611D1A8F0D00CDDF04 /* BillViewController.m */,
-				018EAE621D1A8F0D00CDDF04 /* BillViewController.xib */,
-				018EAE651D1A8F2700CDDF04 /* PersonViewController.h */,
-				018EAE661D1A8F2700CDDF04 /* PersonViewController.m */,
-				018EAE671D1A8F2700CDDF04 /* PersonViewController.xib */,
-				018EAE6A1D1A8F3D00CDDF04 /* MessageViewController.h */,
-				018EAE6B1D1A8F3D00CDDF04 /* MessageViewController.m */,
-				018EAE6C1D1A8F3D00CDDF04 /* MessageViewController.xib */,
-				018EAE741D1A96C000CDDF04 /* SettingViewController.h */,
-				018EAE751D1A96C000CDDF04 /* SettingViewController.m */,
-				018EAE761D1A96C000CDDF04 /* SettingViewController.xib */,
-				018EAE831D1A9F8C00CDDF04 /* LoginViewController.h */,
-				018EAE841D1A9F8C00CDDF04 /* LoginViewController.m */,
-				018EAE851D1A9F8C00CDDF04 /* LoginViewController.xib */,
-				018EAE881D1AA4C000CDDF04 /* RegisterViewController.h */,
-				018EAE891D1AA4C000CDDF04 /* RegisterViewController.m */,
-				018EAE8A1D1AA4C000CDDF04 /* RegisterViewController.xib */,
-				018EAE8D1D1AA64600CDDF04 /* ShoppingViewController.h */,
-				018EAE8E1D1AA64600CDDF04 /* ShoppingViewController.m */,
-				018EAE8F1D1AA64600CDDF04 /* ShoppingViewController.xib */,
+				01BA3C081D1BB1E20070C94B /* Main */,
+				01BA3C071D1BB1D00070C94B /* Setting */,
+				01BA3C061D1BB1BD0070C94B /* ShoppingCar */,
+				01BA3C051D1BB1A10070C94B /* Register */,
+				01BA3C041D1BB1920070C94B /* Login */,
+				01BA3C031D1BB1600070C94B /* Message */,
+				01BA3C021D1BB1580070C94B /* Person */,
+				01BA3C011D1BB1510070C94B /* Bill */,
+				01BA3C001D1BB1480070C94B /* Food */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -420,12 +486,10 @@
 				018EAE691D1A8F2700CDDF04 /* PersonViewController.xib in Resources */,
 				01F69EB71D17CECC002A168A /* bg.jpg in Resources */,
 				01F69E6E1D177681002A168A /* Assets.xcassets in Resources */,
-				01F69EB51D17C6FB002A168A /* 个人中心.jpg in Resources */,
 				019629131D1A796200F5DF28 /* MBProgressHUD.bundle in Resources */,
 				01F69ECA1D17FE28002A168A /* MainViewController.xib in Resources */,
 				018EAE6E1D1A8F3D00CDDF04 /* MessageViewController.xib in Resources */,
 				018EAE8C1D1AA4C000CDDF04 /* RegisterViewController.xib in Resources */,
-				01F69EB11D17B4FC002A168A /* image.png in Resources */,
 				018EAE871D1A9F8C00CDDF04 /* LoginViewController.xib in Resources */,
 				018EAE5F1D1A8EE100CDDF04 /* FoodViewController.xib in Resources */,
 			);

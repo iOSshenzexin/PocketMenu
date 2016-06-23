@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 
-@interface SettingViewController ()
+@interface SettingViewController ()<UIActionSheetDelegate>
 
 @end
 
@@ -16,22 +16,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.hidesBarsOnSwipe = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"选择头像"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"拍照",@"从手机相册选择",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionSheet showInView:self.view];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//修改UIActionSheet弹窗字体的颜色和大小
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet{
+    NSLog(@"%@",actionSheet.subviews);
+    for (UIView *subViwe in actionSheet.subviews) {
+        if ([subViwe isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton*)subViwe;
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:18];
+        }
+    }
 }
-*/
 
 @end

@@ -16,8 +16,8 @@
 #import "LoginViewController.h"
 #import "ShoppingViewController.h"
 #import "AppDelegate.h"
-@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+#import "LECropPictureViewController.h"
+@interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,copy) NSArray *titles;
 @property (nonatomic,copy) NSArray *icons;
 
@@ -25,29 +25,102 @@
 
 @implementation LeftViewController
 - (IBAction)didClickShoppingCar:(id)sender {
-    UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
      ShoppingViewController *svc = [[ShoppingViewController alloc] init];
     svc.title = @"购物车";
-    [menuController pushViewController:svc animated:YES];;
+    [self.mainNavigationController pushViewController:svc animated:YES];;
 }
 
 - (IBAction)didClickLoginBtn:(id)sender {
-    UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
      LoginViewController *lvc = [[LoginViewController alloc] init];
     UINavigationController *nlvc = [[UINavigationController alloc] initWithRootViewController:lvc];
-    [menuController presentViewController:nlvc animated:YES completion:nil];;
+    [self.mainNavigationController presentViewController:nlvc animated:YES completion:nil];;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
+      UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
+    self.mainNavigationController = menuController;
+    self.view.backgroundColor = [UIColor darkGrayColor];
     self.headImage.layer.masksToBounds = YES;
     self.headImage.layer.cornerRadius = 50;
+    self.headImage.userInteractionEnabled = YES;
+    //给头像图片添加点击手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changHeadImage:)];
+    [self.headImage addGestureRecognizer:tap];
     self.titles = @[@"美食之旅",@"我的订单",@"个人中心",@"消息通知"];
-   // self.icons = @
 
+    //隐藏掉tableView多余的行
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+   // self.icons = @
+}
+/**
+ *  头像图片上的点击事件
+ */
+- (void)changHeadImage:(UITapGestureRecognizer *)tap{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"拍照",@"从手机相册选择",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionSheet showInView:self.mainNavigationController.view];
 }
 
+//修改UIActionSheet弹窗字体的颜色和大小
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet{
+    for (UIView *subViwe in actionSheet.subviews) {
+        if ([subViwe isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton*)subViwe;
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:18];
+        }
+    }
+}
+
+#pragma mark ActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    self.window = window;
+    UIImagePickerController *imagePicker = [UIImagePickerController new];
+    imagePicker.delegate = self;
+    if (buttonIndex == 2) return;
+    if (buttonIndex == 0) {
+        //调用相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self.window.rootViewController presentViewController:imagePicker animated:YES completion:nil];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友情提示" message:@"您的照相机不可用或被您禁用了!" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+        }
+    }
+    if (buttonIndex == 1){
+        //调用相册
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self.window.rootViewController presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+//    [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+    LECropPictureViewController *cropPictureController = [[LECropPictureViewController alloc] initWithImage:image andCropPictureType:LECropPictureTypeRounded];
+    cropPictureController.view.backgroundColor = [UIColor blackColor];
+    cropPictureController.cropFrame = CGRectMake(50, 50, 250, 250);
+    cropPictureController.borderColor = [UIColor grayColor];
+    cropPictureController.borderWidth = 1.0;
+    
+    cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
+        self.headImage.image = croppedPicture;
+    };
+    [self.window.rootViewController presentViewController:cropPictureController animated:YES completion:nil];
+}
+
+#pragma mark UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titles.count;
 }
@@ -70,9 +143,6 @@
  * 抽屉页点击每行跳转页面
  */
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-    UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
-    
     switch (indexPath.row) {
         case 0:{
             DDMenuController *menu = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
@@ -82,18 +152,18 @@
         case 1:{
             BillViewController *bvc = [[BillViewController alloc] init];
             bvc.title = self.titles[1];
-            [menuController pushViewController:bvc animated:YES];
+            [self.mainNavigationController pushViewController:bvc animated:YES];
             break;}
         case 2:{
             PersonViewController *pvc = [[PersonViewController alloc] init];
             pvc.title = self.titles[2];
-            [menuController pushViewController:pvc animated:YES];
+            [self.mainNavigationController pushViewController:pvc animated:YES];
             break;
         }
         case 3:{
             MessageViewController *mvc = [[MessageViewController alloc] init];
             mvc.title = self.titles[3];
-            [menuController pushViewController:mvc animated:YES];
+            [self.mainNavigationController pushViewController:mvc animated:YES];
             break;
         }
         default:
@@ -101,12 +171,9 @@
     }
 }
 
-
-
 - (IBAction)didSettingClick:(id)sender {
-     UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
     SettingViewController *svc = [[SettingViewController alloc] init];
     svc.title = @"设置";
-    [menuController pushViewController:svc animated:YES];
+    [self.mainNavigationController pushViewController:svc animated:YES];
 }
 @end
