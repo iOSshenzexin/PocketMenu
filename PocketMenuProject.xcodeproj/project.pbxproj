@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0189C8651D1CE0A600AFFE6F /* ClearDash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C8641D1CE0A600AFFE6F /* ClearDash.m */; };
+		0189C86F1D1CEBC700AFFE6F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0189C86E1D1CEBC700AFFE6F /* SettingViewController.m */; };
+		0189C8711D1CEC1700AFFE6F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0189C8701D1CEC1700AFFE6F /* Storyboard.storyboard */; };
 		018EAE5E1D1A8EE100CDDF04 /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE5C1D1A8EE100CDDF04 /* FoodViewController.m */; };
 		018EAE5F1D1A8EE100CDDF04 /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018EAE5D1D1A8EE100CDDF04 /* FoodViewController.xib */; };
 		018EAE631D1A8F0D00CDDF04 /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE611D1A8F0D00CDDF04 /* BillViewController.m */; };
@@ -15,8 +18,6 @@
 		018EAE691D1A8F2700CDDF04 /* PersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018EAE671D1A8F2700CDDF04 /* PersonViewController.xib */; };
 		018EAE6D1D1A8F3D00CDDF04 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE6B1D1A8F3D00CDDF04 /* MessageViewController.m */; };
 		018EAE6E1D1A8F3D00CDDF04 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018EAE6C1D1A8F3D00CDDF04 /* MessageViewController.xib */; };
-		018EAE771D1A96C000CDDF04 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE751D1A96C000CDDF04 /* SettingViewController.m */; };
-		018EAE781D1A96C000CDDF04 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018EAE761D1A96C000CDDF04 /* SettingViewController.xib */; };
 		018EAE861D1A9F8C00CDDF04 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE841D1A9F8C00CDDF04 /* LoginViewController.m */; };
 		018EAE871D1A9F8C00CDDF04 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018EAE851D1A9F8C00CDDF04 /* LoginViewController.xib */; };
 		018EAE8B1D1AA4C000CDDF04 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 018EAE891D1AA4C000CDDF04 /* RegisterViewController.m */; };
@@ -26,6 +27,7 @@
 		019629121D1A796200F5DF28 /* MBProgressHUD+WJTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0196290E1D1A796200F5DF28 /* MBProgressHUD+WJTools.m */; };
 		019629131D1A796200F5DF28 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0196290F1D1A796200F5DF28 /* MBProgressHUD.bundle */; };
 		019629141D1A796200F5DF28 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 019629111D1A796200F5DF28 /* MBProgressHUD.m */; };
+		01BB15801D1FBE540096344A /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BB157F1D1FBE540096344A /* ad.png */; };
 		01F69E601D177681002A168A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E5F1D177681002A168A /* main.m */; };
 		01F69E631D177681002A168A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E621D177681002A168A /* AppDelegate.m */; };
 		01F69E6C1D177681002A168A /* PocketMenuProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E6A1D177681002A168A /* PocketMenuProject.xcdatamodeld */; };
@@ -60,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0189C8631D1CE0A600AFFE6F /* ClearDash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearDash.h; sourceTree = "<group>"; };
+		0189C8641D1CE0A600AFFE6F /* ClearDash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearDash.m; sourceTree = "<group>"; };
+		0189C86D1D1CEBC700AFFE6F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		0189C86E1D1CEBC700AFFE6F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		0189C8701D1CEC1700AFFE6F /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		018EAE5B1D1A8EE100CDDF04 /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		018EAE5C1D1A8EE100CDDF04 /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		018EAE5D1D1A8EE100CDDF04 /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
@@ -72,9 +79,6 @@
 		018EAE6A1D1A8F3D00CDDF04 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		018EAE6B1D1A8F3D00CDDF04 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		018EAE6C1D1A8F3D00CDDF04 /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
-		018EAE741D1A96C000CDDF04 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		018EAE751D1A96C000CDDF04 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		018EAE761D1A96C000CDDF04 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		018EAE831D1A9F8C00CDDF04 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		018EAE841D1A9F8C00CDDF04 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		018EAE851D1A9F8C00CDDF04 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		0196290F1D1A796200F5DF28 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		019629101D1A796200F5DF28 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		019629111D1A796200F5DF28 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		01BB157F1D1FBE540096344A /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad.png; sourceTree = "<group>"; };
 		01F69E5B1D177681002A168A /* PocketMenuProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMenuProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F69E5F1D177681002A168A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01F69E611D177681002A168A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -143,6 +148,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0189C8601D1CE04900AFFE6F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				01F69E611D177681002A168A /* AppDelegate.h */,
+				01F69E621D177681002A168A /* AppDelegate.m */,
+				01F69E6D1D177681002A168A /* Assets.xcassets */,
+				01F69E6F1D177681002A168A /* LaunchScreen.storyboard */,
+				01F69E721D177681002A168A /* Info.plist */,
+				01F69E6A1D177681002A168A /* PocketMenuProject.xcdatamodeld */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		0189C8611D1CE05F00AFFE6F /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				01F69EB61D17CECC002A168A /* bg.jpg */,
+				01BB157F1D1FBE540096344A /* ad.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		0189C8621D1CE06C00AFFE6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0196290C1D1A796200F5DF28 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,9 +262,9 @@
 		01BA3C071D1BB1D00070C94B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				018EAE741D1A96C000CDDF04 /* SettingViewController.h */,
-				018EAE751D1A96C000CDDF04 /* SettingViewController.m */,
-				018EAE761D1A96C000CDDF04 /* SettingViewController.xib */,
+				0189C86D1D1CEBC700AFFE6F /* SettingViewController.h */,
+				0189C86E1D1CEBC700AFFE6F /* SettingViewController.m */,
+				0189C8701D1CEC1700AFFE6F /* Storyboard.storyboard */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -273,16 +307,12 @@
 		01F69E5D1D177681002A168A /* PocketMenuProject */ = {
 			isa = PBXGroup;
 			children = (
-				01F69EB61D17CECC002A168A /* bg.jpg */,
+				0189C8621D1CE06C00AFFE6F /* View */,
+				0189C8611D1CE05F00AFFE6F /* Image */,
+				0189C8601D1CE04900AFFE6F /* Other */,
 				01F69EA51D179A2B002A168A /* Controller */,
 				01F69E961D179952002A168A /* ThirdLibrary */,
 				01F69E941D179937002A168A /* Model */,
-				01F69E611D177681002A168A /* AppDelegate.h */,
-				01F69E621D177681002A168A /* AppDelegate.m */,
-				01F69E6D1D177681002A168A /* Assets.xcassets */,
-				01F69E6F1D177681002A168A /* LaunchScreen.storyboard */,
-				01F69E721D177681002A168A /* Info.plist */,
-				01F69E6A1D177681002A168A /* PocketMenuProject.xcdatamodeld */,
 				01F69E5E1D177681002A168A /* Supporting Files */,
 			);
 			path = PocketMenuProject;
@@ -317,6 +347,8 @@
 		01F69E941D179937002A168A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0189C8631D1CE0A600AFFE6F /* ClearDash.h */,
+				0189C8641D1CE0A600AFFE6F /* ClearDash.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -482,12 +514,13 @@
 				018EAE641D1A8F0D00CDDF04 /* BillViewController.xib in Resources */,
 				018EAE911D1AA64600CDDF04 /* ShoppingViewController.xib in Resources */,
 				01F69EC51D17FDF0002A168A /* LeftViewController.xib in Resources */,
-				018EAE781D1A96C000CDDF04 /* SettingViewController.xib in Resources */,
 				018EAE691D1A8F2700CDDF04 /* PersonViewController.xib in Resources */,
+				0189C8711D1CEC1700AFFE6F /* Storyboard.storyboard in Resources */,
 				01F69EB71D17CECC002A168A /* bg.jpg in Resources */,
 				01F69E6E1D177681002A168A /* Assets.xcassets in Resources */,
 				019629131D1A796200F5DF28 /* MBProgressHUD.bundle in Resources */,
 				01F69ECA1D17FE28002A168A /* MainViewController.xib in Resources */,
+				01BB15801D1FBE540096344A /* ad.png in Resources */,
 				018EAE6E1D1A8F3D00CDDF04 /* MessageViewController.xib in Resources */,
 				018EAE8C1D1AA4C000CDDF04 /* RegisterViewController.xib in Resources */,
 				018EAE871D1A9F8C00CDDF04 /* LoginViewController.xib in Resources */,
@@ -566,9 +599,10 @@
 			files = (
 				01F69E6C1D177681002A168A /* PocketMenuProject.xcdatamodeld in Sources */,
 				01F69EC91D17FE28002A168A /* MainViewController.m in Sources */,
-				018EAE771D1A96C000CDDF04 /* SettingViewController.m in Sources */,
+				0189C86F1D1CEBC700AFFE6F /* SettingViewController.m in Sources */,
 				018EAE6D1D1A8F3D00CDDF04 /* MessageViewController.m in Sources */,
 				018EAE861D1A9F8C00CDDF04 /* LoginViewController.m in Sources */,
+				0189C8651D1CE0A600AFFE6F /* ClearDash.m in Sources */,
 				01F69EC41D17FDF0002A168A /* LeftViewController.m in Sources */,
 				019629141D1A796200F5DF28 /* MBProgressHUD.m in Sources */,
 				019629121D1A796200F5DF28 /* MBProgressHUD+WJTools.m in Sources */,

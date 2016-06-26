@@ -2,13 +2,13 @@
 //  SettingViewController.m
 //  PocketMenuProject
 //
-//  Created by 杨晓婧 on 16/6/22.
+//  Created by 杨晓婧 on 16/6/24.
 //  Copyright © 2016年 QingDaoShangTong. All rights reserved.
 //
 
 #import "SettingViewController.h"
 
-@interface SettingViewController ()<UIActionSheetDelegate>
+@interface SettingViewController ()
 
 @end
 
@@ -16,30 +16,90 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.hidesBarsOnSwipe = YES;
+}
+- (IBAction)didClickQuit:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"选择头像"
-                                  delegate:self
-                                  cancelButtonTitle:@"取消"
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:@"拍照",@"从手机相册选择",nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet showInView:self.view];
+
+#pragma mark - Table view data source
+/*
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
 }
 
-//修改UIActionSheet弹窗字体的颜色和大小
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet{
-    NSLog(@"%@",actionSheet.subviews);
-    for (UIView *subViwe in actionSheet.subviews) {
-        if ([subViwe isKindOfClass:[UIButton class]]) {
-            UIButton *button = (UIButton*)subViwe;
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:18];
-        }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 2;
+            break;
+        case 2:
+            return 3;
+            break;
+        case 3:
+            return 1;
+            break;
+        default:
+            break;
     }
+    return 0;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellId = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
+    }
+    return cell;
+}
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

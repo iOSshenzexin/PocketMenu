@@ -24,6 +24,7 @@
 @end
 
 @implementation LeftViewController
+
 - (IBAction)didClickShoppingCar:(id)sender {
      ShoppingViewController *svc = [[ShoppingViewController alloc] init];
     svc.title = @"购物车";
@@ -50,6 +51,7 @@
     self.titles = @[@"美食之旅",@"我的订单",@"个人中心",@"消息通知"];
 
     //隐藏掉tableView多余的行
+    // self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
    // self.icons = @
 }
@@ -125,15 +127,17 @@
     return self.titles.count;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 1;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *str = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:str];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.textLabel.text = self.titles[indexPath.row];
     //cell.imageView.image =
@@ -171,8 +175,18 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIImageView *adImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height - 240)];
+    adImage.image = [UIImage imageNamed:@"ad"];
+    return adImage;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return  self.tableView.bounds.size.height - 240;
+}
+
 - (IBAction)didSettingClick:(id)sender {
-    SettingViewController *svc = [[SettingViewController alloc] init];
+     SettingViewController *svc = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil]instantiateViewControllerWithIdentifier:@"setting"];
     svc.title = @"设置";
     [self.mainNavigationController pushViewController:svc animated:YES];
 }

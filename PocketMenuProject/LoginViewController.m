@@ -15,7 +15,9 @@
 @implementation LoginViewController
 
 - (IBAction)didClickRegister:(id)sender {
-    [self.navigationController pushViewController:[[RegisterViewController alloc] init] animated:YES];
+    RegisterViewController *rvc = [[RegisterViewController alloc] init];
+    rvc.title = @"注册";
+    [self.navigationController pushViewController:rvc animated:YES];
 }
 
 - (void)viewDidLoad {
@@ -23,6 +25,7 @@
     [self addLeftBarButtonItem];
     [self deleteBack];
 }
+
 - (void)deleteBack{
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
@@ -31,8 +34,10 @@
 }
 - (void)addLeftBarButtonItem{
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(-10, 0, 50, 44);
-    leftBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    leftBtn.frame = CGRectMake(0, 0, 50, 44);
+    leftBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 10);
+    leftBtn.contentMode = UIViewContentModeLeft;
+
     [leftBtn setTitle:@"返回" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(dismissVc) forControlEvents:UIControlEventTouchUpInside];
@@ -42,5 +47,10 @@
 - (void)dismissVc{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)didClickLogin:(id)sender {
+      [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

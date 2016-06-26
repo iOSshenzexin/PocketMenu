@@ -26,7 +26,7 @@
 
 #import "DDMenuController.h"
 
-#define kMenuOverlayWidth 40.0f
+#define kMenuOverlayWidth 65.0f
 #define kMenuBounceOffset 4.0f
 #define kMenuBounceDuration .3f
 #define kMenuSlideDuration .3f
@@ -51,7 +51,6 @@
 
 - (id)initWithRootViewController:(UIViewController*)controller {
     if ((self = [super initWithRootViewController:controller])) {
-
     }
     return self;
 }
@@ -92,11 +91,8 @@
         [super pushViewController:viewController animated:animated];
         return;
     }
-     
     if (_menuFlags.showingLeftView) {
-        
         // hide the menu, push the view, then slide back
-        
         CGRect frame = self.view.frame;
         frame.origin.x = self.view.bounds.size.width;
         [UIView animateWithDuration:.2 animations:^ {
@@ -109,7 +105,6 @@
     } else if (_menuFlags.showingRightView) {
         
         // right works a bit different, we'll make a screen shot of the menu overlay, then push, and move everything over
-        
         __block CALayer *layer = [CALayer layer];
         CGRect layerFrame = [[UIScreen mainScreen] bounds];
         layerFrame.size.width = kMenuOverlayWidth;
@@ -151,11 +146,8 @@
 
 
 #pragma mark - GestureRecognizers
-
 - (void)pan:(UIPanGestureRecognizer*)gesture {
-
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        
         [self showShadow:YES];
         _panOriginX = self.view.frame.origin.x;        
         _panVelocity = CGPointMake(0.0f, 0.0f);
@@ -165,7 +157,6 @@
         } else {
             _panDirection = DDMenuPanDirectionLeft;
         }
-
     }
     
     if (gesture.state == UIGestureRecognizerStateChanged) {
@@ -188,10 +179,8 @@
             }
             
             if (_menuFlags.canShowLeft) {
-                
                 _menuFlags.showingLeftView = YES;
                 [self.view.superview insertSubview:self.leftController.view belowSubview:self.view];
-                
             } else {
                 frame.origin.x = 0.0f; // ignore right view if it's not set
             }
@@ -217,11 +206,8 @@
             }
             
         }
-        
         self.view.frame = frame;
-
     } else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
-        
         //  Finishing moving to left, right or root view with current pan velocity
         [self.view setUserInteractionEnabled:NO];
         
@@ -274,7 +260,6 @@
         [timingFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
         [keyTimes addObject:[NSNumber numberWithFloat:0.0f]];
         if (bounce) {
-            
             duration += kMenuBounceDuration;
             [keyTimes addObject:[NSNumber numberWithFloat:1.0f - ( kMenuBounceDuration / duration)]];
             if (completion == DDMenuPanCompletionLeft) {
@@ -312,59 +297,49 @@
         
         animation.timingFunctions = timingFunctions;
         animation.keyTimes = keyTimes;
-        animation.calculationMode = @"cubic";
+       // animation.calculationMode = @"cubic";
         animation.values = values;
         animation.duration = duration;   
         animation.removedOnCompletion = NO;
         animation.fillMode = kCAFillModeForwards;
         [self.view.layer addAnimation:animation forKey:nil];
         [CATransaction commit];   
-    
-    }    
+    }
     
 }
 
 - (void)tap:(UITapGestureRecognizer*)gesture {
-    
     [gesture setEnabled:NO];
     [self showRootController:YES];
-    
 }
 
 
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-
     // Check for horizontal pan gesture
     if (gestureRecognizer == _pan) {
         UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer*)gestureRecognizer;
         CGPoint translation = [panGesture translationInView:self.view];
-
         if ([panGesture velocityInView:self.view].x < 600 && sqrt(translation.x * translation.x) / sqrt(translation.y * translation.y) > 1) {
             return YES;
         } 
-        
         return NO;
     }
-
     return YES;
-   
 }
 
 
 #pragma Internal Nav Handling 
 
 - (void)showShadow:(BOOL)val {
-
-    self.view.layer.shadowOpacity = val ? 0.8f : 0.0f;
+    self.view.layer.shadowOpacity = val ? 1.0f : 0.0f;
     if (val) {
         self.view.layer.cornerRadius = 4.0f;
         self.view.layer.shadowOffset = CGSizeZero;
         self.view.layer.shadowRadius = 4.0f;
         self.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.bounds].CGPath;
     }
-    
 }
 
 - (void)showRootController:(BOOL)animated {
@@ -378,7 +353,7 @@
         return;
     }
     
-    [UIView animateWithDuration:.3 animations:^{
+    [UIView animateWithDuration:.4 animations:^{
         
         self.view.frame = frame;
         
@@ -396,9 +371,7 @@
         _menuFlags.showingRightView = NO;
 
         [self showShadow:NO];
-        
     }];
-    
 }
 
 - (void)showLeftController:(BOOL)animated {
@@ -505,8 +478,7 @@
     }
 }
 
-
-#pragma mark - Actions 
+#pragma mark - Actions
 
 - (void)showLeft:(id)sender {
     [self showLeftController:YES];
