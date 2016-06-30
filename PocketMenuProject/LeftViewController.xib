@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -28,8 +28,8 @@
                         <constraint firstAttribute="width" constant="100" id="Gds-qL-mqy"/>
                     </constraints>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fu0-8W-RqK">
-                    <rect key="frame" x="0.0" y="194" width="320" height="303"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fu0-8W-RqK">
+                    <rect key="frame" x="0.0" y="175" width="320" height="340"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="9cv-YX-gpU"/>
@@ -37,7 +37,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5m8-Uf-LNL">
-                    <rect key="frame" x="15" y="517" width="46" height="33"/>
+                    <rect key="frame" x="15" y="525" width="46" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="CpK-O8-bB4"/>
                         <constraint firstAttribute="height" constant="33" id="Fi4-5P-wIe"/>
@@ -51,7 +51,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20I-lj-GR1">
-                    <rect key="frame" x="103" y="144" width="82" height="30"/>
+                    <rect key="frame" x="103" y="140" width="82" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="G3y-pe-ugZ"/>
                         <constraint firstAttribute="width" constant="82" id="TN1-7G-sFD"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9G-I5-09G">
-                    <rect key="frame" x="197" y="517" width="54" height="33"/>
+                    <rect key="frame" x="197" y="525" width="54" height="33"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="OGW-mB-2jY"/>
                     </constraints>
@@ -83,22 +83,22 @@
                 <constraint firstItem="j9G-I5-09G" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.4" id="50c-A3-MC2"/>
                 <constraint firstItem="5m8-Uf-LNL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="8q0-od-wRj"/>
                 <constraint firstItem="08E-yW-jPs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="BHR-ic-tNC"/>
-                <constraint firstAttribute="bottom" secondItem="5m8-Uf-LNL" secondAttribute="bottom" constant="18" id="Edz-Ya-137"/>
+                <constraint firstAttribute="bottom" secondItem="5m8-Uf-LNL" secondAttribute="bottom" constant="10" id="Edz-Ya-137"/>
                 <constraint firstItem="PGu-SF-fkX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EpK-CI-ybf"/>
                 <constraint firstItem="Fu0-8W-RqK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OaD-Vy-sov"/>
-                <constraint firstItem="j9G-I5-09G" firstAttribute="top" secondItem="Fu0-8W-RqK" secondAttribute="bottom" constant="20" id="T53-G3-G4P"/>
+                <constraint firstItem="j9G-I5-09G" firstAttribute="top" secondItem="Fu0-8W-RqK" secondAttribute="bottom" constant="10" id="T53-G3-G4P"/>
                 <constraint firstAttribute="trailing" secondItem="PGu-SF-fkX" secondAttribute="trailing" id="Utg-Ry-wS0"/>
-                <constraint firstAttribute="bottom" secondItem="j9G-I5-09G" secondAttribute="bottom" constant="18" id="awz-fz-aic"/>
+                <constraint firstAttribute="bottom" secondItem="j9G-I5-09G" secondAttribute="bottom" constant="10" id="awz-fz-aic"/>
                 <constraint firstItem="PGu-SF-fkX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f15-Ar-WuT"/>
                 <constraint firstItem="20I-lj-GR1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.9" id="f9l-KZ-GWj"/>
                 <constraint firstItem="08E-yW-jPs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.9" id="fsF-Yc-iHT"/>
-                <constraint firstItem="20I-lj-GR1" firstAttribute="top" secondItem="08E-yW-jPs" secondAttribute="bottom" constant="12" id="hn4-kr-7at"/>
+                <constraint firstItem="20I-lj-GR1" firstAttribute="top" secondItem="08E-yW-jPs" secondAttribute="bottom" constant="8" id="hn4-kr-7at"/>
                 <constraint firstAttribute="trailing" secondItem="Fu0-8W-RqK" secondAttribute="trailing" id="k3W-pF-1j4"/>
                 <constraint firstAttribute="bottom" secondItem="PGu-SF-fkX" secondAttribute="bottom" id="uyu-qW-wNA"/>
-                <constraint firstItem="Fu0-8W-RqK" firstAttribute="top" secondItem="20I-lj-GR1" secondAttribute="bottom" constant="20" id="zjy-lc-beW"/>
+                <constraint firstItem="Fu0-8W-RqK" firstAttribute="top" secondItem="20I-lj-GR1" secondAttribute="bottom" constant="5" id="zjy-lc-beW"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="-944" y="-145"/>
+            <point key="canvasLocation" x="-1219" y="-858"/>
         </view>
     </objects>
     <resources>

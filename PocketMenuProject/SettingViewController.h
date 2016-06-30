@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UITableView *settingTV;
 
 @end

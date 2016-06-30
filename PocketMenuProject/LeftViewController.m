@@ -107,7 +107,8 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:NO completion:nil];
+
 //    [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
     LECropPictureViewController *cropPictureController = [[LECropPictureViewController alloc] initWithImage:image andCropPictureType:LECropPictureTypeRounded];
     cropPictureController.view.backgroundColor = [UIColor blackColor];
@@ -118,8 +119,10 @@
     cropPictureController.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cropPictureController.photoAcceptedBlock = ^(UIImage *croppedPicture){
         self.headImage.image = croppedPicture;
+        [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     };
     [self.window.rootViewController presentViewController:cropPictureController animated:YES completion:nil];
+
 }
 
 #pragma mark UITableViewDelegate
@@ -182,7 +185,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return  self.tableView.bounds.size.height - 240;
+    return  60;
 }
 
 - (IBAction)didSettingClick:(id)sender {

@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 
-@interface SettingViewController ()
+@interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -16,8 +16,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createQuitBtn];
 }
-- (IBAction)didClickQuit:(id)sender {
+
+
+- (void)createQuitBtn{
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.settingTV.frame.size.width, 60)];
+    CGFloat btnX = 40;
+    CGFloat btnW = self.settingTV.frame.size.width - 2*btnX;
+    CGFloat btnH = 44;
+    CGFloat btnY = 10;
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    [btn setTitle:@"退出登录" forState:UIControlStateNormal];
+    btn.layer.cornerRadius = 5;
+    [btn setBackgroundColor:[UIColor redColor]];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(didClickQuit:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:btn];
+    self.settingTV.tableFooterView = footerView;
+}
+
+
+
+- (void)didClickQuit:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

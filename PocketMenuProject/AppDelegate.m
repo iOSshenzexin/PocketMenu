@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "LeftViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
+
+#define GoogleMap_API_KEY @"AIzaSyDud_L9hrUqvO6IDz8Q7GSmEe7cYy1UUk4"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +19,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+     [GMSServices provideAPIKey:GoogleMap_API_KEY];
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
      MainViewController *mainController = [[MainViewController alloc] init];
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:mainController];

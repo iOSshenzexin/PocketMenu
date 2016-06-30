@@ -28,6 +28,12 @@
 		019629131D1A796200F5DF28 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0196290F1D1A796200F5DF28 /* MBProgressHUD.bundle */; };
 		019629141D1A796200F5DF28 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 019629111D1A796200F5DF28 /* MBProgressHUD.m */; };
 		01BB15801D1FBE540096344A /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BB157F1D1FBE540096344A /* ad.png */; };
+		01D7070D1D24F1980003225B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D7070B1D24F1980003225B /* SearchViewController.m */; };
+		01D7070E1D24F1980003225B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D7070C1D24F1980003225B /* SearchViewController.xib */; };
+		01D707111D24F34D0003225B /* ZXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D707101D24F34D0003225B /* ZXSearchBar.m */; };
+		01D707131D24F5890003225B /* searchbar_textfield_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D707121D24F5890003225B /* searchbar_textfield_background@2x.png */; };
+		01D707151D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D707141D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png */; };
+		01D707181D24FA500003225B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D707171D24FA500003225B /* UIView+Extension.m */; };
 		01F69E601D177681002A168A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E5F1D177681002A168A /* main.m */; };
 		01F69E631D177681002A168A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E621D177681002A168A /* AppDelegate.m */; };
 		01F69E6C1D177681002A168A /* PocketMenuProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E6A1D177681002A168A /* PocketMenuProject.xcdatamodeld */; };
@@ -94,6 +100,16 @@
 		019629101D1A796200F5DF28 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		019629111D1A796200F5DF28 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		01BB157F1D1FBE540096344A /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad.png; sourceTree = "<group>"; };
+		01D7070A1D24F1980003225B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		01D7070B1D24F1980003225B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		01D7070C1D24F1980003225B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		01D7070F1D24F34D0003225B /* ZXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXSearchBar.h; sourceTree = "<group>"; };
+		01D707101D24F34D0003225B /* ZXSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXSearchBar.m; sourceTree = "<group>"; };
+		01D707121D24F5890003225B /* searchbar_textfield_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar_textfield_background@2x.png"; sourceTree = "<group>"; };
+		01D707141D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar_textfield_search_icon@2x.png"; sourceTree = "<group>"; };
+		01D707161D24FA500003225B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		01D707171D24FA500003225B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		01D7071D1D2503D70003225B /* pocketMenu.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pocketMenu.pch; sourceTree = "<group>"; };
 		01F69E5B1D177681002A168A /* PocketMenuProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMenuProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F69E5F1D177681002A168A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01F69E611D177681002A168A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +180,8 @@
 		0189C8611D1CE05F00AFFE6F /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				01D707141D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png */,
+				01D707121D24F5890003225B /* searchbar_textfield_background@2x.png */,
 				01F69EB61D17CECC002A168A /* bg.jpg */,
 				01BB157F1D1FBE540096344A /* ad.png */,
 			);
@@ -173,6 +191,10 @@
 		0189C8621D1CE06C00AFFE6F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01D707161D24FA500003225B /* UIView+Extension.h */,
+				01D707171D24FA500003225B /* UIView+Extension.m */,
+				01D7070F1D24F34D0003225B /* ZXSearchBar.h */,
+				01D707101D24F34D0003225B /* ZXSearchBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -282,6 +304,24 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		01D707091D24F1670003225B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				01D7070A1D24F1980003225B /* SearchViewController.h */,
+				01D7070B1D24F1980003225B /* SearchViewController.m */,
+				01D7070C1D24F1980003225B /* SearchViewController.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		01D7071C1D25039B0003225B /* PCH */ = {
+			isa = PBXGroup;
+			children = (
+				01D7071D1D2503D70003225B /* pocketMenu.pch */,
+			);
+			name = PCH;
+			sourceTree = "<group>";
+		};
 		01F69E521D177680002A168A = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +347,7 @@
 		01F69E5D1D177681002A168A /* PocketMenuProject */ = {
 			isa = PBXGroup;
 			children = (
+				01D7071C1D25039B0003225B /* PCH */,
 				0189C8621D1CE06C00AFFE6F /* View */,
 				0189C8611D1CE05F00AFFE6F /* Image */,
 				0189C8601D1CE04900AFFE6F /* Other */,
@@ -365,6 +406,7 @@
 		01F69EA51D179A2B002A168A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01D707091D24F1670003225B /* Search */,
 				01BA3C081D1BB1E20070C94B /* Main */,
 				01BA3C071D1BB1D00070C94B /* Setting */,
 				01BA3C061D1BB1BD0070C94B /* ShoppingCar */,
@@ -515,6 +557,7 @@
 				018EAE911D1AA64600CDDF04 /* ShoppingViewController.xib in Resources */,
 				01F69EC51D17FDF0002A168A /* LeftViewController.xib in Resources */,
 				018EAE691D1A8F2700CDDF04 /* PersonViewController.xib in Resources */,
+				01D707151D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png in Resources */,
 				0189C8711D1CEC1700AFFE6F /* Storyboard.storyboard in Resources */,
 				01F69EB71D17CECC002A168A /* bg.jpg in Resources */,
 				01F69E6E1D177681002A168A /* Assets.xcassets in Resources */,
@@ -524,7 +567,9 @@
 				018EAE6E1D1A8F3D00CDDF04 /* MessageViewController.xib in Resources */,
 				018EAE8C1D1AA4C000CDDF04 /* RegisterViewController.xib in Resources */,
 				018EAE871D1A9F8C00CDDF04 /* LoginViewController.xib in Resources */,
+				01D7070E1D24F1980003225B /* SearchViewController.xib in Resources */,
 				018EAE5F1D1A8EE100CDDF04 /* FoodViewController.xib in Resources */,
+				01D707131D24F5890003225B /* searchbar_textfield_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,13 +643,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F69E6C1D177681002A168A /* PocketMenuProject.xcdatamodeld in Sources */,
+				01D707111D24F34D0003225B /* ZXSearchBar.m in Sources */,
 				01F69EC91D17FE28002A168A /* MainViewController.m in Sources */,
 				0189C86F1D1CEBC700AFFE6F /* SettingViewController.m in Sources */,
 				018EAE6D1D1A8F3D00CDDF04 /* MessageViewController.m in Sources */,
+				01D7070D1D24F1980003225B /* SearchViewController.m in Sources */,
 				018EAE861D1A9F8C00CDDF04 /* LoginViewController.m in Sources */,
 				0189C8651D1CE0A600AFFE6F /* ClearDash.m in Sources */,
 				01F69EC41D17FDF0002A168A /* LeftViewController.m in Sources */,
 				019629141D1A796200F5DF28 /* MBProgressHUD.m in Sources */,
+				01D707181D24FA500003225B /* UIView+Extension.m in Sources */,
 				019629121D1A796200F5DF28 /* MBProgressHUD+WJTools.m in Sources */,
 				018EAE631D1A8F0D00CDDF04 /* BillViewController.m in Sources */,
 				018EAE5E1D1A8EE100CDDF04 /* FoodViewController.m in Sources */,
@@ -747,11 +795,13 @@
 			baseConfigurationReference = B29BCEB9D58FD866D1C7846B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PocketMenuProject/pocketMenu.pch";
 				INFOPLIST_FILE = PocketMenuProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.PocketMenuProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$PODS_ROOT/**";
 			};
 			name = Debug;
 		};
@@ -760,11 +810,13 @@
 			baseConfigurationReference = 66FD09EFF998647D6D97337A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PocketMenuProject/pocketMenu.pch";
 				INFOPLIST_FILE = PocketMenuProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vshoutao.com.PocketMenuProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$PODS_ROOT/**";
 			};
 			name = Release;
 		};

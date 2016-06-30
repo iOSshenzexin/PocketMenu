@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - GoogleMaps (1.13.2)
   - LECropPictureViewController (0.1.2)
   - MJRefresh (3.1.9)
   - Reachability (3.2)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
+  - GoogleMaps
   - LECropPictureViewController (= 0.1.2)
   - MJRefresh (= 3.1.9)
   - Reachability (= 3.2)
@@ -30,6 +32,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   LECropPictureViewController: d64cd991d94d7804c0971f97adae6d1bc216a7b8
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96

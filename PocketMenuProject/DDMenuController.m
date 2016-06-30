@@ -44,7 +44,6 @@
 @synthesize delegate;
 
 @synthesize leftController=_left;
-@synthesize rightController=_right;
 
 @synthesize tap=_tap;
 @synthesize pan=_pan;
@@ -87,7 +86,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
-    if (!_menuFlags.showingLeftView && !_menuFlags.showingRightView) {
+    if (!_menuFlags.showingLeftView) {
         [super pushViewController:viewController animated:animated];
         return;
     }
@@ -95,52 +94,14 @@
         // hide the menu, push the view, then slide back
         CGRect frame = self.view.frame;
         frame.origin.x = self.view.bounds.size.width;
-        [UIView animateWithDuration:.2 animations:^ {
-            self.view.frame = frame;        
-        } completion:^(BOOL finished) {
-            [super pushViewController:viewController animated:NO];
-            [self showRootController:YES];
-        }];
-        
-    } else if (_menuFlags.showingRightView) {
-        
-        // right works a bit different, we'll make a screen shot of the menu overlay, then push, and move everything over
-        __block CALayer *layer = [CALayer layer];
-        CGRect layerFrame = [[UIScreen mainScreen] bounds];
-        layerFrame.size.width = kMenuOverlayWidth;
-        layer.frame = layerFrame;
-        
-        UIGraphicsBeginImageContextWithOptions(layerFrame.size, YES, 0);
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        CGContextTranslateCTM(ctx, -(self.view.frame.size.width-kMenuOverlayWidth), -20.0f);
-        [self.view.layer renderInContext:ctx];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        layer.contents = (id)image.CGImage;
-        
-        [self.view.superview.layer addSublayer:layer];
-        layer.cornerRadius = 4.0f;
-        layer.shadowOpacity = 0.8f;
-        layer.shadowOffset = CGSizeZero;
-        layer.shadowRadius = 4.0f;
-        layer.shadowPath = [UIBezierPath bezierPathWithRect:layer.bounds].CGPath;
-        
-        [super pushViewController:viewController animated:NO];
-        CGRect frame = self.view.frame;
-        frame.origin.x = frame.size.width;
-        self.view.frame = frame;
-        frame.origin.x = 0.0f;
-                
-        [UIView animateWithDuration:0.3f animations:^{
-            
-            self.view.superview.transform = CGAffineTransformMakeTranslation(-[[UIScreen mainScreen] bounds].size.width, 0);
-            
-        } completion:^(BOOL finished) {
-            
-            [self showRootController:NO];
-            self.view.superview.transform = CGAffineTransformMakeTranslation(0.0f, 0.0f);
-            [layer removeFromSuperlayer];
-        }];
+        [self showRootController:YES];
+        [super pushViewController:viewController animated:YES];
+//        [UIView animateWithDuration:.2 animations:^ {
+//            self.view.frame = frame;        
+//        } completion:^(BOOL finished) {
+//            [super pushViewController:viewController animated:NO];
+//            [self showRootController:YES];
+//        }];
     }
 }
 
@@ -173,38 +134,13 @@
         
         if (frame.origin.x > 0.0f && !_menuFlags.showingLeftView) {
             
-            if(_menuFlags.showingRightView) {
-                _menuFlags.showingRightView = NO;
-                [self.rightController.view removeFromSuperview];
-            }
-            
             if (_menuFlags.canShowLeft) {
                 _menuFlags.showingLeftView = YES;
                 [self.view.superview insertSubview:self.leftController.view belowSubview:self.view];
             } else {
                 frame.origin.x = 0.0f; // ignore right view if it's not set
             }
-            
-        } else if (frame.origin.x < 0.0f && !_menuFlags.showingRightView) {
-            
-            if(_menuFlags.showingLeftView) {
-                _menuFlags.showingLeftView = NO;
-                [self.leftController.view removeFromSuperview];
-            }
-            
-            if (_menuFlags.canShowRight) {
-                
-                _menuFlags.showingRightView = YES;
-                CGRect frame = [[UIScreen mainScreen] bounds];
-                frame.size.width -= kMenuOverlayWidth;
-                frame.origin.x = kMenuOverlayWidth;
-                self.rightController.view.frame = frame;
-                [self.view.superview insertSubview:self.rightController.view belowSubview:self.view];
-     
-            } else {
-                frame.origin.x = 0.0f; // ignore left view if it's not set
-            }
-            
+        
         }
         self.view.frame = frame;
     } else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
@@ -215,8 +151,6 @@
         
         if (_panDirection == DDMenuPanDirectionRight && _menuFlags.showingLeftView) {
             completion = DDMenuPanCompletionLeft;
-        } else if (_panDirection == DDMenuPanDirectionLeft && _menuFlags.showingRightView) {
-            completion = DDMenuPanCompletionRight;
         }
         
         CGPoint velocity = [gesture velocityInView:self.view];    
@@ -240,9 +174,8 @@
         [CATransaction setCompletionBlock:^{
             if (completion == DDMenuPanCompletionLeft) {
                 [self showLeftController:NO];
-            } else if (completion == DDMenuPanCompletionRight) {
-                [self showRightController:NO];
-            } else {
+            }
+            else {
                 [self showRootController:NO];
             }
             [self.view.layer removeAllAnimations];
@@ -266,10 +199,6 @@
                 
                 [values addObject:[NSValue valueWithCGPoint:CGPointMake(((width/2) + span) + kMenuBounceOffset, pos.y)]];
                 
-            } else if (completion == DDMenuPanCompletionRight) {
-                
-                [values addObject:[NSValue valueWithCGPoint:CGPointMake(-((width/2) - (kMenuOverlayWidth-kMenuBounceOffset)), pos.y)]];
-                
             } else {
                 
                 // depending on which way we're panning add a bounce offset
@@ -286,8 +215,6 @@
         }
         if (completion == DDMenuPanCompletionLeft) {
             [values addObject:[NSValue valueWithCGPoint:CGPointMake((width/2) + span, pos.y)]];
-        } else if (completion == DDMenuPanCompletionRight) {
-            [values addObject:[NSValue valueWithCGPoint:CGPointMake(-((width/2) - kMenuOverlayWidth), pos.y)]];
         } else {
             [values addObject:[NSValue valueWithCGPoint:CGPointMake(width/2, pos.y)]];
         }
@@ -363,12 +290,8 @@
             [self.leftController.view removeFromSuperview];
         }
         
-        if (self.rightController && self.rightController.view.superview) {
-            [self.rightController.view removeFromSuperview];
-        }
         
         _menuFlags.showingLeftView = NO;
-        _menuFlags.showingRightView = NO;
 
         [self showShadow:NO];
     }];
@@ -404,62 +327,12 @@
     
 }
 
-- (void)showRightController:(BOOL)animated {
-    if (!_menuFlags.canShowRight) return;
-    
-    if (_menuFlags.respondsToWillShowViewController) {
-        [self.delegate menuController:self willShowViewController:self.rightController];
-    }
-    _menuFlags.showingRightView = YES;
-    [self showShadow:YES];
-    
-    UIView *view = self.rightController.view;
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    frame.origin.x = kMenuOverlayWidth;
-    frame.size.width -= kMenuOverlayWidth;
-    view.frame = frame;
-    [self.view.superview insertSubview:view belowSubview:self.view];
-    
-    frame = self.view.frame;
-    frame.origin.x = -(frame.size.width - kMenuOverlayWidth);
-    
-    if (!animated) {
-        self.view.frame = frame;
-        [_tap setEnabled:YES];
-        return;
-    }
-    
-    [UIView animateWithDuration:.3 animations:^{
-        self.view.frame = frame;
-    } completion:^(BOOL finished) {
-        [_tap setEnabled:YES];
-    }];
-}
-
 
 #pragma mark Setters
 
 - (void)setDelegate:(id<DDMenuControllerDelegate>)val {
     [super setDelegate:(id<UINavigationControllerDelegate>)val];
     _menuFlags.respondsToWillShowViewController = [(id)self.delegate respondsToSelector:@selector(menuController:willShowViewController:)];
-    
-}
-
-- (void)setRightController:(UIViewController *)rightController {
-    _right = rightController;
-    
-    NSAssert([self.viewControllers count] > 0, @"Must have a root controller set.");
-    
-    UIViewController *controller = [self.viewControllers objectAtIndex:0];
-    
-    if (_right) {
-        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showRight:)];
-        controller.navigationItem.rightBarButtonItem = button;
-        _menuFlags.canShowRight = YES;
-    } else {
-        controller.navigationItem.rightBarButtonItem = nil;
-        _menuFlags.canShowRight = NO;
-    }
     
 }
 
@@ -484,9 +357,6 @@
     [self showLeftController:YES];
 }
 
-- (void)showRight:(id)sender {
-    [self showRightController:YES];
-    
-}
+
 
 @end

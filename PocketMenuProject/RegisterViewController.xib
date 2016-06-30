@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -175,27 +175,27 @@
                     <exclude reference="WUE-L8-eyg"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="5Y3-BX-GDr"/>
-                    <exclude reference="QyN-FA-glz"/>
-                    <exclude reference="fAQ-ed-FBJ"/>
-                    <exclude reference="oh3-ou-0em"/>
-                    <exclude reference="KFn-fx-3lV"/>
-                    <exclude reference="Ubh-Da-Fwj"/>
-                    <exclude reference="b7I-g9-1UD"/>
-                    <exclude reference="7wp-MP-404"/>
-                    <exclude reference="9cn-ke-BEJ"/>
                     <exclude reference="Bf3-ao-030"/>
                     <exclude reference="TWc-Pq-qVb"/>
                     <exclude reference="vky-dB-hC9"/>
-                    <exclude reference="IeY-ii-6WG"/>
-                    <exclude reference="Ogw-GK-ARw"/>
                     <exclude reference="7HW-Sh-tSm"/>
                     <exclude reference="JS9-3T-Mbg"/>
                     <exclude reference="Jwo-65-kJx"/>
+                    <exclude reference="7wp-MP-404"/>
+                    <exclude reference="9cn-ke-BEJ"/>
+                    <exclude reference="KFn-fx-3lV"/>
+                    <exclude reference="Ubh-Da-Fwj"/>
+                    <exclude reference="b7I-g9-1UD"/>
                     <exclude reference="7ir-Li-7jp"/>
                     <exclude reference="LKj-Ya-H6U"/>
                     <exclude reference="b17-dk-yRK"/>
                     <exclude reference="trt-Kd-InL"/>
+                    <exclude reference="IeY-ii-6WG"/>
+                    <exclude reference="Ogw-GK-ARw"/>
+                    <exclude reference="5Y3-BX-GDr"/>
+                    <exclude reference="QyN-FA-glz"/>
+                    <exclude reference="fAQ-ed-FBJ"/>
+                    <exclude reference="oh3-ou-0em"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -209,27 +209,27 @@
                     <include reference="WUE-L8-eyg"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="5Y3-BX-GDr"/>
-                    <include reference="QyN-FA-glz"/>
-                    <include reference="fAQ-ed-FBJ"/>
-                    <include reference="oh3-ou-0em"/>
-                    <include reference="KFn-fx-3lV"/>
-                    <include reference="Ubh-Da-Fwj"/>
-                    <include reference="b7I-g9-1UD"/>
-                    <include reference="7wp-MP-404"/>
-                    <include reference="9cn-ke-BEJ"/>
                     <include reference="Bf3-ao-030"/>
                     <include reference="TWc-Pq-qVb"/>
                     <include reference="vky-dB-hC9"/>
-                    <include reference="IeY-ii-6WG"/>
-                    <include reference="Ogw-GK-ARw"/>
                     <include reference="7HW-Sh-tSm"/>
                     <include reference="JS9-3T-Mbg"/>
                     <include reference="Jwo-65-kJx"/>
+                    <include reference="7wp-MP-404"/>
+                    <include reference="9cn-ke-BEJ"/>
+                    <include reference="KFn-fx-3lV"/>
+                    <include reference="Ubh-Da-Fwj"/>
+                    <include reference="b7I-g9-1UD"/>
                     <include reference="7ir-Li-7jp"/>
                     <include reference="LKj-Ya-H6U"/>
                     <include reference="b17-dk-yRK"/>
                     <include reference="trt-Kd-InL"/>
+                    <include reference="IeY-ii-6WG"/>
+                    <include reference="Ogw-GK-ARw"/>
+                    <include reference="5Y3-BX-GDr"/>
+                    <include reference="QyN-FA-glz"/>
+                    <include reference="fAQ-ed-FBJ"/>
+                    <include reference="oh3-ou-0em"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="1" y="262"/>

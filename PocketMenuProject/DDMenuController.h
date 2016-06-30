@@ -32,8 +32,6 @@ typedef enum {
     struct {
         unsigned int respondsToWillShowViewController:1;
         unsigned int showingLeftView:1;
-        unsigned int showingRightView:1;
-        unsigned int canShowRight:1;
         unsigned int canShowLeft:1;
     } _menuFlags;
     
@@ -42,7 +40,6 @@ typedef enum {
 @property(nonatomic,assign) id <DDMenuControllerDelegate,UINavigationControllerDelegate> delegate;
 
 @property(nonatomic,strong) UIViewController *leftController;
-@property(nonatomic,strong) UIViewController *rightController;
 
 @property(nonatomic,readonly) UITapGestureRecognizer *tap;
 @property(nonatomic,readonly) UIPanGestureRecognizer *pan;
