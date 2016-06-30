@@ -9,6 +9,10 @@
 #ifndef pocketMenu_pch
 #define pocketMenu_pch
 
+
+#define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+
 #ifdef __OBJC__
 
 #import "GoogleMaps.h"

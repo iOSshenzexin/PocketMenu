@@ -72,7 +72,6 @@
         [self.view addGestureRecognizer:pan];
         _pan = pan;
     }
-    
 }
 
 - (void)viewDidUnload {

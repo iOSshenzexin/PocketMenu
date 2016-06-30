@@ -9,6 +9,7 @@
 /*  青岛裕龙大厦 120.467981,36.106652 */
 #import "MainViewController.h"
 #import "SearchViewController.h"
+#import "AdvertiseViewController.h"
 @interface MainViewController (){
     GMSMapView *_mapView;
 }
@@ -25,6 +26,16 @@
     
     [self deleteBack];
    // [self createMapUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToAd) name:@"pushtoad" object:nil];
+}
+
+/**
+ *  点击广告进入详情页
+ */
+
+- (void)pushToAd{
+    AdvertiseViewController *adVc = [[AdvertiseViewController alloc] init];
+    [self.navigationController pushViewController:adVc animated:YES];
 }
 
 - (void)addSearchBtnAtNavigationbar{

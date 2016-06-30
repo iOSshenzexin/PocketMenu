@@ -34,6 +34,9 @@
 		01D707131D24F5890003225B /* searchbar_textfield_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D707121D24F5890003225B /* searchbar_textfield_background@2x.png */; };
 		01D707151D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01D707141D24F5EA0003225B /* searchbar_textfield_search_icon@2x.png */; };
 		01D707181D24FA500003225B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D707171D24FA500003225B /* UIView+Extension.m */; };
+		01D707331D2568CA0003225B /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D7072E1D2568CA0003225B /* AdvertiseView.m */; };
+		01D707341D2568CA0003225B /* AdvertiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D707301D2568CA0003225B /* AdvertiseViewController.m */; };
+		01D707351D2568CA0003225B /* GetAdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D707321D2568CA0003225B /* GetAdTool.m */; };
 		01F69E601D177681002A168A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E5F1D177681002A168A /* main.m */; };
 		01F69E631D177681002A168A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E621D177681002A168A /* AppDelegate.m */; };
 		01F69E6C1D177681002A168A /* PocketMenuProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F69E6A1D177681002A168A /* PocketMenuProject.xcdatamodeld */; };
@@ -110,6 +113,12 @@
 		01D707161D24FA500003225B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		01D707171D24FA500003225B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		01D7071D1D2503D70003225B /* pocketMenu.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pocketMenu.pch; sourceTree = "<group>"; };
+		01D7072D1D2568CA0003225B /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
+		01D7072E1D2568CA0003225B /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
+		01D7072F1D2568CA0003225B /* AdvertiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseViewController.h; sourceTree = "<group>"; };
+		01D707301D2568CA0003225B /* AdvertiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseViewController.m; sourceTree = "<group>"; };
+		01D707311D2568CA0003225B /* GetAdTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAdTool.h; sourceTree = "<group>"; };
+		01D707321D2568CA0003225B /* GetAdTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAdTool.m; sourceTree = "<group>"; };
 		01F69E5B1D177681002A168A /* PocketMenuProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketMenuProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F69E5F1D177681002A168A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01F69E611D177681002A168A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -322,6 +331,19 @@
 			name = PCH;
 			sourceTree = "<group>";
 		};
+		01D7072C1D2568CA0003225B /* SetAdPage */ = {
+			isa = PBXGroup;
+			children = (
+				01D7072D1D2568CA0003225B /* AdvertiseView.h */,
+				01D7072E1D2568CA0003225B /* AdvertiseView.m */,
+				01D7072F1D2568CA0003225B /* AdvertiseViewController.h */,
+				01D707301D2568CA0003225B /* AdvertiseViewController.m */,
+				01D707311D2568CA0003225B /* GetAdTool.h */,
+				01D707321D2568CA0003225B /* GetAdTool.m */,
+			);
+			path = SetAdPage;
+			sourceTree = "<group>";
+		};
 		01F69E521D177680002A168A = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +419,7 @@
 		01F69E961D179952002A168A /* ThirdLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				01D7072C1D2568CA0003225B /* SetAdPage */,
 				0196290C1D1A796200F5DF28 /* MBProgressHUD */,
 				01F69EBD1D17F652002A168A /* DDMenuController */,
 			);
@@ -646,9 +669,11 @@
 				01D707111D24F34D0003225B /* ZXSearchBar.m in Sources */,
 				01F69EC91D17FE28002A168A /* MainViewController.m in Sources */,
 				0189C86F1D1CEBC700AFFE6F /* SettingViewController.m in Sources */,
+				01D707341D2568CA0003225B /* AdvertiseViewController.m in Sources */,
 				018EAE6D1D1A8F3D00CDDF04 /* MessageViewController.m in Sources */,
 				01D7070D1D24F1980003225B /* SearchViewController.m in Sources */,
 				018EAE861D1A9F8C00CDDF04 /* LoginViewController.m in Sources */,
+				01D707331D2568CA0003225B /* AdvertiseView.m in Sources */,
 				0189C8651D1CE0A600AFFE6F /* ClearDash.m in Sources */,
 				01F69EC41D17FDF0002A168A /* LeftViewController.m in Sources */,
 				019629141D1A796200F5DF28 /* MBProgressHUD.m in Sources */,
@@ -656,6 +681,7 @@
 				019629121D1A796200F5DF28 /* MBProgressHUD+WJTools.m in Sources */,
 				018EAE631D1A8F0D00CDDF04 /* BillViewController.m in Sources */,
 				018EAE5E1D1A8EE100CDDF04 /* FoodViewController.m in Sources */,
+				01D707351D2568CA0003225B /* GetAdTool.m in Sources */,
 				018EAE901D1AA64600CDDF04 /* ShoppingViewController.m in Sources */,
 				018EAE8B1D1AA4C000CDDF04 /* RegisterViewController.m in Sources */,
 				01F69E631D177681002A168A /* AppDelegate.m in Sources */,

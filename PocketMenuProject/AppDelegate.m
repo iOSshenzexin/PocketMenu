@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "LeftViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "GetAdTool.h"
 
 #define GoogleMap_API_KEY @"AIzaSyDud_L9hrUqvO6IDz8Q7GSmEe7cYy1UUk4"
 @interface AppDelegate ()
@@ -35,6 +36,22 @@
     window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
     self.window = window;
+    
+    //设置启动广告
+     // 1.判断沙盒中是否存在广告图片，如果存在，直接显示
+    NSString *filePath = [GetAdTool getFilePathWithImageName:[kUserDefaults valueForKey:adImageName]];
+    
+    BOOL isExist = [GetAdTool isFileExistWithFilePath:filePath];
+    if (isExist) {// 图片存在
+        
+        AdvertiseView *advertiseView = [[AdvertiseView alloc] initWithFrame:self.window.bounds];
+        advertiseView.filePath = filePath;
+        [advertiseView show];
+        
+    }
+    
+    // 2.无论沙盒中是否存在广告图片，都需要重新调用广告接口，判断广告是否更新
+    [GetAdTool getAdvertisingImage];
     return YES;
 }
 

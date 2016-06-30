@@ -51,6 +51,10 @@
       [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark 点击空白收键盘，适用于所有可以编辑的控件
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
 
 @end

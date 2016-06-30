@@ -22,5 +22,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
 
 @end
