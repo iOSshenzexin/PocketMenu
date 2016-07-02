@@ -35,4 +35,5 @@
     marker.snippet = @"澳大利亚";
     marker.map = _mapView;
 }
+
 @end

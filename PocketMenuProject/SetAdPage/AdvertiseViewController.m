@@ -29,8 +29,7 @@
     [self.view addSubview:_webView];
 }
 
-- (void)setAdUrl:(NSString *)adUrl
-{
+- (void)setAdUrl:(NSString *)adUrl{
     _adUrl = adUrl;
 }
 

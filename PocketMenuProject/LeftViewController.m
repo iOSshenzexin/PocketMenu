@@ -41,7 +41,7 @@
     [super viewDidLoad];
       UINavigationController *menuController =(UINavigationController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
     self.mainNavigationController = menuController;
-    self.view.backgroundColor = [UIColor darkGrayColor];
+   // self.view.backgroundColor = [UIColor darkGrayColor];
     self.headImage.layer.masksToBounds = YES;
     self.headImage.layer.cornerRadius = 50;
     self.headImage.userInteractionEnabled = YES;

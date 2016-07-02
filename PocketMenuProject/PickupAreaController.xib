@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickupAreaController">
+            <connections>
+                <outlet property="pickUpTableView" destination="w4t-Sj-60s" id="mxX-Wg-MzL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J0s-gC-g5N">
+                    <rect key="frame" x="0.0" y="64" width="375" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="z5l-Hk-Boh"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w4t-Sj-60s">
+                    <rect key="frame" x="0.0" y="124" width="375" height="543"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="u5Q-JO-FA5"/>
+                        <outlet property="delegate" destination="-1" id="emz-Rh-7u5"/>
+                    </connections>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7hU-Mb-klG">
+                    <rect key="frame" x="40" y="80" width="295" height="41"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="9L2-1X-s3z"/>
+                    </constraints>
+                    <segments>
+                        <segment title="距离最近"/>
+                        <segment title="评价最高"/>
+                    </segments>
+                    <color key="tintColor" red="1" green="0.7068186232" blue="0.201644831" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="J0s-gC-g5N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0PI-Vo-bRV"/>
+                <constraint firstItem="7hU-Mb-klG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="5rw-Ge-TYN"/>
+                <constraint firstAttribute="trailing" secondItem="J0s-gC-g5N" secondAttribute="trailing" id="LQG-wd-gnr"/>
+                <constraint firstAttribute="trailing" secondItem="7hU-Mb-klG" secondAttribute="trailing" constant="40" id="Me3-JE-oN8"/>
+                <constraint firstItem="7hU-Mb-klG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="WwS-BG-hvS"/>
+                <constraint firstItem="J0s-gC-g5N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ZA7-eE-nAg"/>
+                <constraint firstItem="w4t-Sj-60s" firstAttribute="top" secondItem="J0s-gC-g5N" secondAttribute="bottom" id="eO0-Pe-NNC"/>
+                <constraint firstAttribute="bottom" secondItem="w4t-Sj-60s" secondAttribute="bottom" id="eid-oh-wcZ"/>
+                <constraint firstItem="w4t-Sj-60s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nbG-XY-aKQ"/>
+                <constraint firstAttribute="trailing" secondItem="w4t-Sj-60s" secondAttribute="trailing" id="sqj-FT-rIm"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="335.5" y="327.5"/>
+        </view>
+    </objects>
+</document>

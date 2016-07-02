@@ -10,7 +10,11 @@
 #import "MainViewController.h"
 #import "SearchViewController.h"
 #import "AdvertiseViewController.h"
-@interface MainViewController (){
+#import "MainTableViewCell.h"
+#import "TopBannerTool.h"
+#import "KNBannerView.h"
+#import "PickupAreaController.h"
+@interface MainViewController ()<UITableViewDataSource,UITableViewDelegate,KNBannerViewDelegate>{
     GMSMapView *_mapView;
 }
 
@@ -18,21 +22,64 @@
 
 @implementation MainViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"美食之旅";
+    //滑动的时候隐藏掉navigationbar
+    //self.navigationController.hidesBarsOnSwipe = YES;
     //添加搜索框
     [self addSearchBtnAtNavigationbar];
     
     [self deleteBack];
    // [self createMapUI];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToAd) name:@"pushtoad" object:nil];
+    [self registerMainTableViewCell];
+    
+    //设置主页的头部轮播图
+    self.mainTableView.tableHeaderView.height = 180;
+    //self.mainTableView.tableHeaderView = [TopBannerTool setupNetWorkBannerViewAtViewController:self];
+    self.mainTableView.tableHeaderView = [TopBannerTool setupLocatioBannerViewAtViewController:self];
 }
 
-/**
- *  点击广告进入详情页
- */
+  //顶部轮播图Delegate
+- (void)bannerView:(KNBannerView *)bannerView collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSInteger)index{
+    NSLog(@"%zd---%zd",bannerView.tag,index);
+}
 
+
+- (void)registerMainTableViewCell{
+    UINib *nib = [UINib nibWithNibName:@"MainTableViewCell" bundle:nil];
+    [self.mainTableView registerNib:nib forCellReuseIdentifier:@"cellId"];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *str = @"cellId";
+    MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (!cell) {
+        cell = [[MainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    return cell;
+    
+}
+
+#pragma mark  点击广告进入详情页
+ 
 - (void)pushToAd{
     AdvertiseViewController *adVc = [[AdvertiseViewController alloc] init];
     [self.navigationController pushViewController:adVc animated:YES];
@@ -71,5 +118,10 @@
     self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    PickupAreaController *pac = [[PickupAreaController alloc] init];
+    pac.title = @"配送专区";
+    [self.navigationController pushViewController:pac animated:YES];
+}
 
 @end

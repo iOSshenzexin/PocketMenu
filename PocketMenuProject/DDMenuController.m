@@ -1,41 +1,18 @@
 //
 //  DDMenuController.m
 //  DDMenuController
-//
-//  Created by Devin Doty on 11/30/11.
-//  Copyright (c) 2011 toaast. All rights reserved.
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 
 #import "DDMenuController.h"
 
 #define kMenuOverlayWidth 65.0f
 #define kMenuBounceOffset 4.0f
-#define kMenuBounceDuration .3f
-#define kMenuSlideDuration .3f
+#define kMenuBounceDuration .2f
+#define kMenuSlideDuration .2f
 
 
 @interface DDMenuController (Internal)
 - (void)showRootController:(BOOL)animated;
-- (void)showRightController:(BOOL)animated; 
-- (void)showLeftController:(BOOL)animated; 
+- (void)showLeftController:(BOOL)animated;
 - (void)showShadow:(BOOL)val;
 @end
 
@@ -84,7 +61,6 @@
 #pragma mark - UINavigationController push overide  
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
     if (!_menuFlags.showingLeftView) {
         [super pushViewController:viewController animated:animated];
         return;
@@ -108,13 +84,14 @@
 #pragma mark - GestureRecognizers
 - (void)pan:(UIPanGestureRecognizer*)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        [self showShadow:YES];
-        _panOriginX = self.view.frame.origin.x;        
+        _panOriginX = self.view.frame.origin.x;
         _panVelocity = CGPointMake(0.0f, 0.0f);
-        
+        [self showShadow:YES];
         if([gesture velocityInView:self.view].x > 0) {
+          // 从左往右
             _panDirection = DDMenuPanDirectionRight;
         } else {
+            //从右往左
             _panDirection = DDMenuPanDirectionLeft;
         }
     }
@@ -123,7 +100,7 @@
         
         CGPoint velocity = [gesture velocityInView:self.view];
         if((velocity.x*_panVelocity.x + velocity.y*_panVelocity.y) < 0) {
-            _panDirection = (_panDirection == DDMenuPanDirectionRight) ? DDMenuPanDirectionLeft : DDMenuPanDirectionRight;
+            _panDirection = DDMenuPanDirectionRight;
         }
         
         _panVelocity = velocity;        
@@ -132,14 +109,12 @@
         frame.origin.x = _panOriginX + translation.x;
         
         if (frame.origin.x > 0.0f && !_menuFlags.showingLeftView) {
-            
             if (_menuFlags.canShowLeft) {
                 _menuFlags.showingLeftView = YES;
                 [self.view.superview insertSubview:self.leftController.view belowSubview:self.view];
             } else {
                 frame.origin.x = 0.0f; // ignore right view if it's not set
             }
-        
         }
         self.view.frame = frame;
     } else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
@@ -150,6 +125,7 @@
         
         if (_panDirection == DDMenuPanDirectionRight && _menuFlags.showingLeftView) {
             completion = DDMenuPanCompletionLeft;
+           // completion = DDMenuPanCompletionRight;
         }
         
         CGPoint velocity = [gesture velocityInView:self.view];    
@@ -161,7 +137,6 @@
         CGFloat width = self.view.frame.size.width;
         CGFloat span = (width - kMenuOverlayWidth);
         CGFloat duration = kMenuSlideDuration; // default duration with 0 velocity
-        
         
         if (bounce) {
             duration = (span / velocity.x); // bouncing we'll use the current velocity to determine duration
@@ -175,7 +150,7 @@
                 [self showLeftController:NO];
             }
             else {
-                [self showRootController:NO];
+                [self showRootController:YES];
             }
             [self.view.layer removeAllAnimations];
             [self.view setUserInteractionEnabled:YES];
@@ -198,12 +173,12 @@
                 
                 [values addObject:[NSValue valueWithCGPoint:CGPointMake(((width/2) + span) + kMenuBounceOffset, pos.y)]];
                 
-            } else {
-                
+            } else if(completion == DDMenuPanCompletionRoot && DDMenuPanCompletionRight){
                 // depending on which way we're panning add a bounce offset
                 if (_panDirection == DDMenuPanDirectionLeft) {
                     [values addObject:[NSValue valueWithCGPoint:CGPointMake((width/2) - kMenuBounceOffset, pos.y)]];
-                } else {
+                }
+                else if(completion == DDMenuPanCompletionRoot && DDMenuPanDirectionRight) {
                     [values addObject:[NSValue valueWithCGPoint:CGPointMake((width/2) + kMenuBounceOffset, pos.y)]];
                 }
                 
@@ -214,7 +189,8 @@
         }
         if (completion == DDMenuPanCompletionLeft) {
             [values addObject:[NSValue valueWithCGPoint:CGPointMake((width/2) + span, pos.y)]];
-        } else {
+        }
+        else if(completion == DDMenuPanCompletionRoot && DDMenuPanDirectionRight){
             [values addObject:[NSValue valueWithCGPoint:CGPointMake(width/2, pos.y)]];
         }
         
@@ -231,7 +207,6 @@
         [self.view.layer addAnimation:animation forKey:nil];
         [CATransaction commit];   
     }
-    
 }
 
 - (void)tap:(UITapGestureRecognizer*)gesture {
@@ -247,10 +222,11 @@
     if (gestureRecognizer == _pan) {
         UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer*)gestureRecognizer;
         CGPoint translation = [panGesture translationInView:self.view];
-        if ([panGesture velocityInView:self.view].x < 600 && sqrt(translation.x * translation.x) / sqrt(translation.y * translation.y) > 1) {
-            return YES;
-        } 
-        return NO;
+        //禁止右侧滑动视图的出现.
+        if (translation.x <= 0 && [panGesture locationInView:self.view].x > 65  ) {
+            return NO;
+        }
+        return YES;
     }
     return YES;
 }
@@ -279,8 +255,7 @@
         return;
     }
     
-    [UIView animateWithDuration:.4 animations:^{
-        
+    [UIView animateWithDuration:.3 animations:^{
         self.view.frame = frame;
         
     } completion:^(BOOL finished) {
@@ -288,8 +263,6 @@
         if (self.leftController && self.leftController.view.superview) {
             [self.leftController.view removeFromSuperview];
         }
-        
-        
         _menuFlags.showingLeftView = NO;
 
         [self showShadow:NO];
@@ -343,7 +316,6 @@
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showLeft:)];
         controller.navigationItem.leftBarButtonItem = button;
         _menuFlags.canShowLeft = YES;
-        
     } else {
         controller.navigationItem.leftBarButtonItem = nil;
         _menuFlags.canShowLeft = NO;
@@ -355,7 +327,5 @@
 - (void)showLeft:(id)sender {
     [self showLeftController:YES];
 }
-
-
 
 @end
