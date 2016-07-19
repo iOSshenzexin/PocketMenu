@@ -66,17 +66,17 @@
         return;
     }
     if (_menuFlags.showingLeftView) {
+       // [self showRootController:YES];
         // hide the menu, push the view, then slide back
         CGRect frame = self.view.frame;
         frame.origin.x = self.view.bounds.size.width;
-        [self showRootController:YES];
-        [super pushViewController:viewController animated:YES];
-//        [UIView animateWithDuration:.2 animations:^ {
-//            self.view.frame = frame;        
-//        } completion:^(BOOL finished) {
-//            [super pushViewController:viewController animated:NO];
-//            [self showRootController:YES];
-//        }];
+       // [super pushViewController:viewController animated:YES];
+        [UIView animateWithDuration:.2 animations:^ {
+            self.view.frame = frame;        
+        } completion:^(BOOL finished) {
+            [super pushViewController:viewController animated:NO];
+            [self showRootController:YES];
+        }];
     }
 }
 

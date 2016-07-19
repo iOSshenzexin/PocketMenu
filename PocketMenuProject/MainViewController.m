@@ -40,6 +40,8 @@
     self.mainTableView.tableHeaderView.height = 180;
     //self.mainTableView.tableHeaderView = [TopBannerTool setupNetWorkBannerViewAtViewController:self];
     self.mainTableView.tableHeaderView = [TopBannerTool setupLocatioBannerViewAtViewController:self];
+    
+    NSLog(@"======");
 }
 
   //顶部轮播图Delegate

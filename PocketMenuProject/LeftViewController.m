@@ -65,7 +65,7 @@
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:@"拍照",@"从手机相册选择",nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+   // actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [actionSheet showInView:self.mainNavigationController.view];
 }
 
